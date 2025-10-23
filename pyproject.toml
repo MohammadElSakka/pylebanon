@@ -10,6 +10,8 @@ authors = [
 license = { file = "LICENSE" }
 keywords = ["lebanon", "python"]
 
+urls = { "GitHub" = "https://github.com/MohammadElSakka/", "LinkedIn" = "https://www.linkedin.com/in/mohammad-el-sakka/" }
+
 dependencies = []
 
 [build-system]
