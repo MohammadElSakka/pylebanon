@@ -12,6 +12,8 @@ class Lebanon:
 
         self.__setup()
 
+        print("Habibi welcome to Lebanon \U0001f1f1\U0001f1e7")
+
     def __setup(self):
         with self.__datapath.open("r", encoding="utf-8") as f:
             self.__json = json.load(f)
@@ -30,25 +32,22 @@ class Lebanon:
             + [self.__json["translations"]["it"]]
         )
 
-    def get_area(self):
-        return self.__json["area"]
-
     def get_location(self):
         return self.__json["location"]
 
     def get_area(self):
         return self.__json["area"]
 
-    def get_timezones(self):
-        return self.__json["timezones"]
+    def get_timezone(self):
+        return self.__json["timezones"][0]
 
-    def get_states(self):
-        return [s["name"] for s in self.__json()["states"]]
+    def get_governorates(self):
+        return [s["name"] for s in self.__json["states"]]
 
-    def get_state_cities(self, state_name):
+    def get_governorate_cities(self, state_name):
         cities = []
         for state in self.__json["states"]:
-            if state["name"] == state:
+            if state["name"] == state_name:
                 cities = [c["name"] for c in state["cities"]]
                 break
         return cities
@@ -59,14 +58,11 @@ class Lebanon:
     def get_capital(self):
         return self.__json["capital"]
 
-    def get_calling_codes(self):
-        return "+" + self.__json["get_calling_codes"][0]
+    def get_phone_code(self):
+        return "+" + self.__json["callingCodes"][0]
 
     def get_currency(self):
         return self.__json["currencies"][0]
 
     def get_languages(self):
         return self.__json["languages"]
-
-    def get_json(self):
-        return self.__json
